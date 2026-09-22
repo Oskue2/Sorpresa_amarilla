@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Un pequeño jardín 🌻</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body class="pagina">
+
+
+    <!-- =========================================
+         TRANSICIÓN ENTRE PÁGINAS
+    ========================================== -->
+
+    <div class="transicion-pagina"></div>
+
+
+    <!-- =========================================
+         PÉTALOS
+    ========================================== -->
+
+    <div id="petalos"></div>
+
+
+    <!-- =========================================
+         JARDÍN INTERACTIVO
+    ========================================== -->
+
+    <main class="jardin">
+
+        <div class="jardin-luz"></div>
+
+
+        <!-- =====================================
+             ENCABEZADO
+        ====================================== -->
+
+        <div class="jardin-encabezado">
+
+            <p class="jardin-pequeno">
+                Un pequeño jardín para ti
+            </p>
+
+
+            <h1>
+                Mi Estrellita ✨
+            </h1>
+
+
+            <div class="jardin-linea"></div>
+
+
+            <p class="jardin-intro">
+
+                Porque hay personas que llegan a nuestra vida
+                y hacen que todo parezca un poquito más bonito.
+
+            </p>
+
+
+            <p class="jardin-instruccion">
+
+                Toca las flores y descubre algunos pequeños detalles.
+
+            </p>
+
+        </div>
+
+
+        <!-- =====================================
+             FLORES INTERACTIVAS
+        ====================================== -->
+
+        <div class="jardin-flores">
+
+
+            <!-- FLOR 1 -->
+
+            <button class="flor-interactiva flor-interactiva-1" id="flor-a"
+                data-mensaje="Sigue brillando como siempre lo has hecho, mi changuita."
+                data-imagen="img/flores/girasol.png" aria-label="Descubrir mensaje">
+
+                <img src="img/flores/girasol.png" alt="">
+
+            </button>
+
+
+            <!-- FLOR 2 -->
+
+            <button class="flor-interactiva flor-interactiva-2" id="flor-b"
+                data-mensaje="Hay flores bonitas, y luego están las que me hacen pensar en ti."
+                data-imagen="img/flores/margarita.png" aria-label="Descubrir mensaje">
+
+                <img src="img/flores/margarita.png" alt="">
+
+            </button>
+
+
+            <!-- FLOR 3 -->
+
+            <button class="flor-interactiva flor-interactiva-3" id="flor-c" data-mensaje="Recuerda lavarte bien el 
+            ombliguito simpre 🙏. 💛"
+                data-imagen="img/flores/girasol.png" aria-label="Descubrir mensaje">
+
+                <img src="img/flores/girasol.png" alt="">
+
+            </button>
+
+
+            <!-- FLOR 4 -->
+
+            <button class="flor-interactiva flor-interactiva-4" id="flor-d"
+                data-mensaje="Que tu voz siga enviando esas pequeñas ondas que hacen sonreír el corazón de quienes te aman.." data-imagen="img/flores/rosaamarilla (1).png"
+                aria-label="Descubrir mensaje">
+
+                <img src="img/flores/rosaamarilla (1).png" alt="">
+
+            </button>
+
+
+            <!-- FLOR 5 -->
+
+            <button class="flor-interactiva flor-interactiva-5" id="flor-e" data-mensaje="Te amo ✨"
+                data-imagen="img/flores/margarita.png" aria-label="Descubrir mensaje">
+
+                <img src="img/flores/margarita.png" alt="">
+
+            </button>
+
+
+            <!-- HOJAS DECORATIVAS -->
+
+            <img src="img/flores/hoja.png" class="hoja hoja-1" alt="">
+
+            <img src="img/flores/hoja2.png" class="hoja hoja-2" alt="">
+
+        </div>
+
+        <!-- =====================================
+        ABEJAS DECORATIVAS
+        ====================================== -->
+
+        <div class="jardin-abejas">
+
+            <img src="img/flores/changuita.png" class="jardin-abeja jardin-abeja-1" alt="">
+
+            <img src="img/flores/yo.png" class="jardin-abeja jardin-abeja-2" alt="">
+
+            <img src="img/flores/changuita.png" class="jardin-abeja jardin-abeja-3" alt="">
+
+            <img src="img/flores/yo.png" class="jardin-abeja jardin-abeja-4" alt="">
+
+        </div>
+
+        <!-- =====================================
+     RAMOS INFERIORES
+====================================== -->
+
+        <div class="jardin-ramos">
+
+            <img src="img/flores/ramo.png" class="jardin-ramo jardin-ramo-1" alt="">
+
+            <img src="img/flores/ramo3.png" class="jardin-ramo jardin-ramo-2" alt="">
+
+        </div>
+
+
+        <!-- =====================================
+             BOTÓN CONTINUAR
+        ====================================== -->
+
+        <div class="jardin-continuar">
+
+            <p>
+                Y esto es apenas una pequeña parte...
+            </p>
+
+
+            <a href="flores.html" class="btn-continuar">
+                Seguir caminando 🌻
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================
+         MODAL DEL MENSAJE
+    ========================================== -->
+
+    <div class="mensaje-flor" id="mensajeFlor">
+
+        <div class="mensaje-flor-contenido">
+
+
+            <button id="cerrarMensaje" class="cerrar-mensaje" aria-label="Cerrar">
+                ×
+            </button>
+
+
+            <div class="flor-mensaje-icono">
+
+                <img id="imagenFlor" src="img/flores/girasol.png" alt="Flor">
+
+            </div>
+
+
+            <p id="textoFlor"></p>
+
+
+        </div>
+
+    </div>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

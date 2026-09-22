@@ -1,0 +1,3666 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap');
+
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: "Poppins", sans-serif;
+    background: #f6d58c;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font-family: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   TRANSICIÓN ENTRE PÁGINAS
+========================================================= */
+
+.transicion-pagina {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+
+    background: #f7df9b;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.5s ease;
+}
+
+body.salir-pagina .transicion-pagina {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   PÉTALOS
+========================================================= */
+
+#petalos {
+    position: fixed;
+    inset: 0;
+
+    z-index: 20;
+
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.petalo {
+    position: absolute;
+    top: -30px;
+
+    pointer-events: none;
+
+    animation:
+        caerPetalo linear forwards,
+        balanceoPetalo ease-in-out infinite;
+}
+
+@keyframes caerPetalo {
+
+    from {
+        transform:
+            translateY(-30px)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+    }
+}
+
+@keyframes balanceoPetalo {
+
+    0%,
+    100% {
+        margin-left: 0;
+    }
+
+    50% {
+        margin-left: 35px;
+    }
+}
+
+
+/* =========================================================
+   =========================================================
+   PÁGINA 1 — PORTADA
+   =========================================================
+   ========================================================= */
+
+.hero {
+
+    position: relative;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+
+            rgba(255, 239, 180, 0.85),
+
+            rgba(255, 214, 115, 0.45) 30%,
+
+            rgba(214, 151, 62, 0.75) 65%,
+
+            rgba(104, 59, 31, 0.95) 100%
+        );
+}
+
+
+/* =========================================================
+   LUZ DE PORTADA
+========================================================= */
+
+.luz {
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+
+            rgba(255, 244, 190, 0.75),
+
+            rgba(255, 210, 100, 0.20) 45%,
+
+            transparent 70%
+        );
+
+    filter: blur(10px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENIDO PORTADA
+========================================================= */
+
+.hero-contenido {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: min(90%, 850px);
+
+    padding: 40px 20px;
+
+    text-align: center;
+
+    animation:
+        aparecerHero
+        1.5s
+        ease
+        forwards;
+}
+
+@keyframes aparecerHero {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+.hero-pequeno {
+
+    margin:
+        0 0 10px;
+
+    font-size:
+        0.85rem;
+
+    letter-spacing:
+        4px;
+
+    text-transform:
+        uppercase;
+
+    color:
+        rgba(80, 48, 25, 0.75);
+}
+
+
+.hero h1 {
+
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(4rem, 10vw, 7rem);
+
+    font-weight:
+        500;
+
+    line-height:
+        0.95;
+
+    color:
+        #4e2b18;
+
+    text-shadow:
+        0 3px 10px
+        rgba(255, 240, 180, 0.6);
+}
+
+
+.hero h2 {
+
+    margin:
+        15px 0 20px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(1.8rem, 4vw, 3rem);
+
+    font-weight:
+        400;
+
+    font-style:
+        italic;
+
+    color:
+        #704421;
+}
+
+
+.linea-dorada {
+
+    width:
+        90px;
+
+    height:
+        1px;
+
+    margin:
+        0 auto 25px;
+
+    background:
+        #8b5a2b;
+
+    opacity:
+        0.7;
+}
+
+
+.hero-frase {
+
+    margin:
+        0 auto 35px;
+
+    max-width:
+        650px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(1.25rem, 3vw, 1.65rem);
+
+    line-height:
+        1.7;
+
+    color:
+        #57341f;
+}
+
+
+/* =========================================================
+   BOTÓN PORTADA
+========================================================= */
+
+.btn-regalo {
+
+    position: relative;
+
+    padding:
+        15px 30px;
+
+    border:
+        1px solid
+        rgba(111, 70, 29, 0.5);
+
+    border-radius:
+        50px;
+
+    background:
+        rgba(255, 245, 210, 0.55);
+
+    color:
+        #56331c;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        0.95rem;
+
+    cursor:
+        pointer;
+
+    backdrop-filter:
+        blur(8px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(75, 40, 15, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.btn-regalo:hover {
+
+    transform:
+        translateY(-4px);
+
+    background:
+        rgba(255, 250, 225, 0.85);
+
+    box-shadow:
+        0 15px 35px
+        rgba(75, 40, 15, 0.25);
+}
+
+.btn-regalo:active {
+
+    transform:
+        scale(0.97);
+}
+
+
+/* =========================================================
+   FLORES DECORATIVAS PORTADA
+========================================================= */
+
+.flor-decorativa {
+
+    position:
+        absolute;
+
+    z-index:
+        2;
+
+    pointer-events:
+        none;
+
+    user-select:
+        none;
+
+    filter:
+        drop-shadow(
+            0 8px 12px
+            rgba(70, 40, 15, 0.20)
+        );
+
+    animation:
+        flotarFlor
+        5s
+        ease-in-out
+        infinite;
+}
+
+.flor-1 {
+
+    width:
+        170px;
+
+    left:
+        4%;
+
+    bottom:
+        5%;
+
+    transform:
+        rotate(-15deg);
+}
+
+.flor-2 {
+
+    width:
+        125px;
+
+    left:
+        13%;
+
+    top:
+        10%;
+
+    transform:
+        rotate(15deg);
+
+    animation-delay:
+        -1s;
+}
+
+.flor-3 {
+
+    width:
+        180px;
+
+    right:
+        3%;
+
+    bottom:
+        4%;
+
+    transform:
+        rotate(15deg);
+
+    animation-delay:
+        -2s;
+}
+
+.flor-4 {
+
+    width:
+        120px;
+
+    right:
+        13%;
+
+    top:
+        11%;
+
+    transform:
+        rotate(-15deg);
+
+    animation-delay:
+        -3s;
+}
+
+@keyframes flotarFlor {
+
+    0%,
+    100% {
+        margin-top:
+            0;
+    }
+
+    50% {
+        margin-top:
+            -12px;
+    }
+}
+
+
+/* =========================================================
+   =========================================================
+   PÁGINA 2 — JARDÍN INTERACTIVO
+   =========================================================
+   ========================================================= */
+
+.jardin {
+
+    position:
+        relative;
+
+    min-height:
+        100vh;
+
+    min-height:
+        100svh;
+
+    width:
+        100%;
+
+    overflow:
+        hidden;
+
+    padding:
+        80px 20px 70px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+
+            rgba(255, 242, 190, 0.95),
+
+            rgba(249, 219, 145, 0.75) 35%,
+
+            rgba(225, 178, 91, 0.75) 70%,
+
+            rgba(125, 76, 39, 0.95) 100%
+        );
+}
+
+
+/* =========================================================
+   LUZ DEL JARDÍN
+========================================================= */
+
+.jardin-luz {
+
+    position:
+        absolute;
+
+    width:
+        700px;
+
+    height:
+        700px;
+
+    top:
+        5%;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+
+            rgba(255, 247, 203, 0.65),
+
+            rgba(255, 224, 134, 0.18) 50%,
+
+            transparent 72%
+        );
+
+    filter:
+        blur(15px);
+
+    pointer-events:
+        none;
+}
+
+
+/* =========================================================
+   ENCABEZADO JARDÍN
+========================================================= */
+
+.jardin-encabezado {
+
+    position:
+        relative;
+
+    z-index:
+        8;
+
+    width:
+        100%;
+
+    max-width:
+        720px;
+
+    text-align:
+        center;
+
+    margin-bottom:
+        45px;
+}
+
+.jardin-pequeno {
+
+    margin:
+        0 0 8px;
+
+    font-size:
+        0.8rem;
+
+    letter-spacing:
+        4px;
+
+    text-transform:
+        uppercase;
+
+    color:
+        rgba(82, 50, 28, 0.72);
+}
+
+.jardin h1 {
+
+    margin:
+        0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(3.2rem, 8vw, 5.5rem);
+
+    font-weight:
+        500;
+
+    line-height:
+        1;
+
+    color:
+        #4e2b18;
+}
+
+.jardin-linea {
+
+    width:
+        80px;
+
+    height:
+        1px;
+
+    margin:
+        20px auto;
+
+    background:
+        #8b5a2b;
+
+    opacity:
+        0.7;
+}
+
+.jardin-intro {
+
+    margin:
+        0 auto;
+
+    max-width:
+        600px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        1.4rem;
+
+    line-height:
+        1.6;
+
+    color:
+        #5b3820;
+}
+
+.jardin-instruccion {
+
+    margin:
+        22px 0 0;
+
+    font-size:
+        0.82rem;
+
+    letter-spacing:
+        1px;
+
+    color:
+        rgba(77, 46, 25, 0.7);
+}
+
+
+/* =========================================================
+   FLORES INTERACTIVAS
+========================================================= */
+
+.jardin-flores {
+
+    position:
+        relative;
+
+    z-index:
+        4;
+
+    width:
+        min(900px, 100%);
+
+    height:
+        470px;
+
+    margin:
+        0 auto;
+}
+
+.flor-interactiva {
+
+    position:
+        absolute;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    background:
+        transparent;
+
+    cursor:
+        pointer;
+
+    z-index:
+        6;
+
+    transition:
+        filter 0.35s ease;
+}
+
+.flor-interactiva img {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        auto;
+
+    pointer-events:
+        none;
+
+    filter:
+        drop-shadow(
+            0 12px 12px
+            rgba(70, 40, 15, 0.18)
+        );
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+.flor-interactiva:hover img {
+
+    transform:
+        translateY(-8px)
+        scale(1.08);
+
+    filter:
+        brightness(1.08)
+        drop-shadow(
+            0 15px 18px
+            rgba(70, 40, 15, 0.25)
+        );
+}
+
+.flor-interactiva:active img {
+
+    transform:
+        translateY(-3px)
+        scale(0.96);
+}
+
+
+/* =========================================================
+   POSICIONES DE FLORES
+========================================================= */
+
+.flor-interactiva-1 {
+
+    width:
+        155px;
+
+    left:
+        5%;
+
+    bottom:
+        55px;
+
+    transform:
+        rotate(-8deg);
+}
+
+.flor-interactiva-2 {
+
+    width:
+        130px;
+
+    left:
+        27%;
+
+    top:
+        70px;
+
+    transform:
+        rotate(7deg);
+}
+
+.flor-interactiva-3 {
+
+    width:
+        175px;
+
+    left:
+        50%;
+
+    bottom:
+        35px;
+
+    transform:
+        translateX(-50%)
+        rotate(-4deg);
+}
+
+.flor-interactiva-4 {
+
+    width:
+        135px;
+
+    right:
+        27%;
+
+    top:
+        65px;
+
+    transform:
+        rotate(-7deg);
+}
+
+.flor-interactiva-5 {
+
+    width:
+        155px;
+
+    right:
+        5%;
+
+    bottom:
+        55px;
+
+    transform:
+        rotate(8deg);
+}
+
+
+/* =========================================================
+   HOJAS
+========================================================= */
+
+.hoja {
+
+    position:
+        absolute;
+
+    pointer-events:
+        none;
+
+    z-index:
+        2;
+
+    opacity:
+        0.85;
+
+    filter:
+        drop-shadow(
+            0 8px 10px
+            rgba(60, 40, 15, 0.15)
+        );
+}
+
+.hoja-1 {
+
+    width:
+        190px;
+
+    left:
+        12%;
+
+    bottom:
+        5px;
+
+    transform:
+        rotate(-15deg);
+}
+
+.hoja-2 {
+
+    width:
+        180px;
+
+    right:
+        12%;
+
+    bottom:
+        5px;
+
+    transform:
+        scaleX(-1)
+        rotate(-15deg);
+}
+
+
+/* =========================================================
+   ABEJAS — JARDÍN INTERACTIVO
+========================================================= */
+
+.jardin-abejas {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    z-index:
+        7;
+
+    pointer-events:
+        none;
+
+    overflow:
+        hidden;
+}
+
+.jardin-abeja {
+
+    position:
+        absolute;
+
+    width:
+        48px;
+
+    height:
+        auto;
+
+    object-fit:
+        contain;
+
+    filter:
+        drop-shadow(
+            0 5px 5px
+            rgba(50, 30, 15, 0.20)
+        );
+}
+
+
+/* abeja 1 */
+
+.jardin-abeja-1 {
+
+    left:
+        12%;
+
+    top:
+        38%;
+
+    animation:
+        jardinVuelo1
+        13s
+        ease-in-out
+        infinite;
+}
+
+
+/* abeja 2 */
+
+.jardin-abeja-2 {
+
+    right:
+        13%;
+
+    top:
+        35%;
+
+    animation:
+        jardinVuelo2
+        15s
+        ease-in-out
+        infinite;
+}
+
+
+/* abeja 3 */
+
+.jardin-abeja-3 {
+
+    left:
+        40%;
+
+    top:
+        18%;
+
+    animation:
+        jardinVuelo3
+        17s
+        ease-in-out
+        infinite;
+}
+
+
+/* abeja 4 */
+
+.jardin-abeja-4 {
+
+    right:
+        35%;
+
+    bottom:
+        25%;
+
+    animation:
+        jardinVuelo4
+        14s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   MOVIMIENTOS ABEJAS
+========================================================= */
+
+@keyframes jardinVuelo1 {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(8deg);
+    }
+
+    25% {
+        transform:
+            translate(100px, -35px)
+            rotate(-8deg);
+    }
+
+    50% {
+        transform:
+            translate(180px, 35px)
+            rotate(10deg);
+    }
+
+    75% {
+        transform:
+            translate(70px, 80px)
+            rotate(-5deg);
+    }
+}
+
+
+@keyframes jardinVuelo2 {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(-7deg);
+    }
+
+    25% {
+        transform:
+            translate(-110px, -45px)
+            rotate(8deg);
+    }
+
+    50% {
+        transform:
+            translate(-190px, 30px)
+            rotate(-8deg);
+    }
+
+    75% {
+        transform:
+            translate(-80px, 80px)
+            rotate(5deg);
+    }
+}
+
+
+@keyframes jardinVuelo3 {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(5deg);
+    }
+
+    30% {
+        transform:
+            translate(90px, 70px)
+            rotate(-8deg);
+    }
+
+    60% {
+        transform:
+            translate(-80px, 130px)
+            rotate(8deg);
+    }
+}
+
+
+@keyframes jardinVuelo4 {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(-5deg);
+    }
+
+    30% {
+        transform:
+            translate(-100px, -60px)
+            rotate(8deg);
+    }
+
+    60% {
+        transform:
+            translate(80px, -100px)
+            rotate(-8deg);
+    }
+}
+
+
+/* =========================================================
+   RAMOS INFERIORES — JARDÍN
+========================================================= */
+
+.jardin-ramos {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    z-index:
+        3;
+
+    pointer-events:
+        none;
+
+    overflow:
+        hidden;
+}
+
+.jardin-ramo {
+
+    position:
+        absolute;
+
+    height:
+        auto;
+
+    filter:
+        drop-shadow(
+            0 12px 14px
+            rgba(60, 30, 15, 0.22)
+        );
+
+    animation:
+        jardinRamoRespira
+        6s
+        ease-in-out
+        infinite;
+}
+
+.jardin-ramo-1 {
+
+    width:
+        250px;
+
+    left:
+        -25px;
+
+    bottom:
+        -15px;
+
+    transform:
+        rotate(-8deg);
+}
+
+.jardin-ramo-2 {
+
+    width:
+        250px;
+
+    right:
+        -25px;
+
+    bottom:
+        -15px;
+
+    transform:
+        scaleX(-1)
+        rotate(-8deg);
+
+    animation-delay:
+        -2s;
+}
+
+@keyframes jardinRamoRespira {
+
+    0%,
+    100% {
+        margin-top:
+            0;
+    }
+
+    50% {
+        margin-top:
+            -7px;
+    }
+}
+
+
+/* =========================================================
+   CONTINUAR
+========================================================= */
+
+.jardin-continuar {
+
+    position:
+        relative;
+
+    z-index:
+        8;
+
+    margin-top:
+        15px;
+
+    text-align:
+        center;
+}
+
+.jardin-continuar p {
+
+    margin:
+        0 0 18px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        1.25rem;
+
+    font-style:
+        italic;
+
+    color:
+        #593720;
+}
+
+.btn-continuar {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        14px 28px;
+
+    border:
+        1px solid
+        rgba(110, 69, 30, 0.45);
+
+    border-radius:
+        50px;
+
+    background:
+        rgba(255, 247, 214, 0.58);
+
+    color:
+        #56331c;
+
+    font-size:
+        0.9rem;
+
+    text-decoration:
+        none;
+
+    backdrop-filter:
+        blur(8px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(70, 40, 15, 0.15);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.btn-continuar:hover {
+
+    transform:
+        translateY(-4px);
+
+    background:
+        rgba(255, 251, 231, 0.88);
+
+    box-shadow:
+        0 15px 30px
+        rgba(70, 40, 15, 0.22);
+}
+
+.btn-continuar:active {
+    transform:
+        scale(0.97);
+}
+
+
+/* =========================================================
+   MODAL DE LAS FLORES
+========================================================= */
+
+.mensaje-flor {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        1000;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        25px;
+
+    background:
+        rgba(57, 33, 18, 0.42);
+
+    backdrop-filter:
+        blur(7px);
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+.mensaje-flor.activo {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+}
+
+
+.mensaje-flor-contenido {
+
+    position:
+        relative;
+
+    width:
+        min(90%, 440px);
+
+    padding:
+        40px 30px 35px;
+
+    text-align:
+        center;
+
+    border-radius:
+        25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 249, 226, 0.98),
+            rgba(255, 232, 174, 0.96)
+        );
+
+    box-shadow:
+        0 25px 70px
+        rgba(45, 24, 10, 0.3);
+
+    transform:
+        translateY(20px)
+        scale(0.94);
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+/* CORRECCIÓN IMPORTANTE */
+
+.mensaje-flor.activo
+.mensaje-flor-contenido {
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+.cerrar-mensaje {
+
+    position:
+        absolute;
+
+    top:
+        12px;
+
+    right:
+        16px;
+
+    width:
+        35px;
+
+    height:
+        35px;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(100, 60, 25, 0.08);
+
+    color:
+        #654020;
+
+    font-size:
+        1.7rem;
+
+    line-height:
+        1;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.cerrar-mensaje:hover {
+
+    background:
+        rgba(100, 60, 25, 0.15);
+
+    transform:
+        rotate(90deg);
+}
+
+
+.flor-mensaje-icono {
+
+    width:
+        130px;
+
+    height:
+        130px;
+
+    margin:
+        0 auto 15px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+}
+
+.flor-mensaje-icono img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        contain;
+
+    filter:
+        drop-shadow(
+            0 10px 10px
+            rgba(80, 45, 15, 0.16)
+        );
+}
+
+#textoFlor {
+
+    margin:
+        10px auto 0;
+
+    max-width:
+        350px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        1.55rem;
+
+    line-height:
+        1.5;
+
+    color:
+        #54321f;
+}
+
+
+/* =========================================================
+   =========================================================
+   PÁGINA 3 — GRAN JARDÍN FINAL
+   =========================================================
+   ========================================================= */
+
+.gran-jardin {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    min-height:
+        100vh;
+
+    min-height:
+        100svh;
+
+    overflow:
+        hidden;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f6d58c 0%,
+            #edb86f 32%,
+            #c97850 68%,
+            #633d35 100%
+        );
+}
+
+
+/* =========================================================
+   ATARDECER
+========================================================= */
+
+.jardin-atardecer {
+
+    position:
+        absolute;
+
+    width:
+        900px;
+
+    height:
+        900px;
+
+    top:
+        50%;
+
+    left:
+        50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+
+            rgba(255, 239, 174, 0.75),
+
+            rgba(255, 203, 105, 0.35) 35%,
+
+            rgba(232, 139, 82, 0.12) 60%,
+
+            transparent 75%
+        );
+
+    filter:
+        blur(12px);
+
+    pointer-events:
+        none;
+}
+
+
+/* =========================================================
+   DESTELLOS
+========================================================= */
+
+.destellos {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    z-index:
+        4;
+
+    pointer-events:
+        none;
+}
+
+.destello {
+
+    position:
+        absolute;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    color:
+        rgba(255, 239, 174, 0.75);
+
+    text-shadow:
+        0 0 12px
+        rgba(255, 239, 174, 0.8);
+
+    animation:
+        destelloBrillar
+        4s
+        ease-in-out
+        infinite;
+}
+
+.destello-1 {
+    left: 18%;
+    top: 18%;
+    font-size: 1.3rem;
+}
+
+.destello-2 {
+    left: 30%;
+    top: 12%;
+    font-size: 0.9rem;
+    animation-delay: -1s;
+}
+
+.destello-3 {
+    right: 22%;
+    top: 20%;
+    font-size: 1.4rem;
+    animation-delay: -2s;
+}
+
+.destello-4 {
+    right: 14%;
+    top: 35%;
+    font-size: 0.9rem;
+    animation-delay: -3s;
+}
+
+.destello-5 {
+    left: 12%;
+    top: 42%;
+    font-size: 1rem;
+    animation-delay: -1.5s;
+}
+
+.destello-6 {
+    right: 35%;
+    top: 14%;
+    font-size: 0.8rem;
+    animation-delay: -2.5s;
+}
+
+.destello-7 {
+    left: 27%;
+    bottom: 23%;
+    font-size: 1.2rem;
+    animation-delay: -0.7s;
+}
+
+.destello-8 {
+    right: 28%;
+    bottom: 26%;
+    font-size: 0.9rem;
+    animation-delay: -3.2s;
+}
+
+@keyframes destelloBrillar {
+
+    0%,
+    100% {
+        opacity:
+            0.25;
+
+        transform:
+            scale(0.8)
+            rotate(0deg);
+    }
+
+    50% {
+        opacity:
+            1;
+
+        transform:
+            scale(1.25)
+            rotate(20deg);
+    }
+}
+
+
+/* =========================================================
+   RAMOS — GRAN JARDÍN FINAL
+========================================================= */
+
+.ramos {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    z-index:
+        5;
+
+    pointer-events:
+        none;
+
+    overflow:
+        hidden;
+}
+
+.ramo {
+
+    position:
+        absolute;
+
+    height:
+        auto;
+
+    filter:
+        drop-shadow(
+            0 15px 18px
+            rgba(60, 30, 15, 0.25)
+        );
+
+    animation:
+        ramoFlotar
+        7s
+        ease-in-out
+        infinite;
+}
+
+
+/* ramo inferior izquierdo */
+
+.ramo-1 {
+
+    width:
+        260px;
+
+    left:
+        -35px;
+
+    bottom:
+        -30px;
+
+    transform:
+        rotate(-7deg);
+}
+
+
+/* ramo superior izquierdo */
+
+.ramo-2 {
+
+    width:
+        190px;
+
+    left:
+        -35px;
+
+    top:
+        5%;
+
+    transform:
+        rotate(8deg);
+
+    animation-delay:
+        -2s;
+}
+
+
+/* ramo inferior derecho */
+
+.ramo-3 {
+
+    width:
+        270px;
+
+    right:
+        -40px;
+
+    bottom:
+        -30px;
+
+    transform:
+        scaleX(-1)
+        rotate(-7deg);
+
+    animation-delay:
+        -3s;
+}
+
+
+/* ramo superior derecho */
+
+.ramo-4 {
+
+    width:
+        190px;
+
+    right:
+        -35px;
+
+    top:
+        7%;
+
+    transform:
+        scaleX(-1)
+        rotate(8deg);
+
+    animation-delay:
+        -4s;
+}
+
+@keyframes ramoFlotar {
+
+    0%,
+    100% {
+        margin-top:
+            0;
+    }
+
+    50% {
+        margin-top:
+            -8px;
+    }
+}
+
+
+/* =========================================================
+   ABEJAS — GRAN JARDÍN FINAL
+========================================================= */
+
+.enjambre {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    z-index:
+        8;
+
+    pointer-events:
+        none;
+
+    overflow:
+        hidden;
+}
+
+.abeja {
+
+    position:
+        absolute;
+
+    width:
+        48px;
+
+    height:
+        auto;
+
+    object-fit:
+        contain;
+
+    filter:
+        drop-shadow(
+            0 6px 7px
+            rgba(45, 25, 12, 0.25)
+        );
+}
+
+
+/* abeja 1 */
+
+.abeja-1 {
+
+    left:
+        17%;
+
+    top:
+        30%;
+
+    animation:
+        abejaVuelo1
+        14s
+        ease-in-out
+        infinite;
+}
+
+
+/* abeja 2 */
+
+.abeja-2 {
+
+    right:
+        17%;
+
+    top:
+        27%;
+
+    animation:
+        abejaVuelo2
+        16s
+        ease-in-out
+        infinite;
+}
+
+
+/* abeja 3 */
+
+.abeja-3 {
+
+    left:
+        30%;
+
+    top:
+        16%;
+
+    animation:
+        abejaVuelo3
+        18s
+        ease-in-out
+        infinite;
+}
+
+
+/* abeja 4 */
+
+.abeja-4 {
+
+    right:
+        32%;
+
+    top:
+        16%;
+
+    animation:
+        abejaVuelo4
+        15s
+        ease-in-out
+        infinite;
+}
+
+
+/* abeja 5 */
+
+.abeja-5 {
+
+    left:
+        38%;
+
+    bottom:
+        22%;
+
+    animation:
+        abejaVuelo5
+        17s
+        ease-in-out
+        infinite;
+}
+
+
+/* abeja 6 */
+
+.abeja-6 {
+
+    right:
+        37%;
+
+    bottom:
+        24%;
+
+    animation:
+        abejaVuelo6
+        19s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   ANIMACIONES ABEJAS FINALES
+========================================================= */
+
+@keyframes abejaVuelo1 {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(5deg);
+    }
+
+    25% {
+        transform:
+            translate(90px, -50px)
+            rotate(-8deg);
+    }
+
+    50% {
+        transform:
+            translate(150px, 30px)
+            rotate(8deg);
+    }
+
+    75% {
+        transform:
+            translate(50px, 90px)
+            rotate(-4deg);
+    }
+}
+
+
+@keyframes abejaVuelo2 {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(-5deg);
+    }
+
+    25% {
+        transform:
+            translate(-100px, -40px)
+            rotate(8deg);
+    }
+
+    50% {
+        transform:
+            translate(-160px, 45px)
+            rotate(-7deg);
+    }
+
+    75% {
+        transform:
+            translate(-60px, 80px)
+            rotate(5deg);
+    }
+}
+
+
+@keyframes abejaVuelo3 {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(6deg);
+    }
+
+    30% {
+        transform:
+            translate(100px, 70px)
+            rotate(-7deg);
+    }
+
+    60% {
+        transform:
+            translate(-60px, 120px)
+            rotate(8deg);
+    }
+}
+
+
+@keyframes abejaVuelo4 {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(-5deg);
+    }
+
+    30% {
+        transform:
+            translate(-100px, 60px)
+            rotate(7deg);
+    }
+
+    60% {
+        transform:
+            translate(70px, 125px)
+            rotate(-8deg);
+    }
+}
+
+
+@keyframes abejaVuelo5 {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(4deg);
+    }
+
+    35% {
+        transform:
+            translate(-110px, -70px)
+            rotate(-7deg);
+    }
+
+    70% {
+        transform:
+            translate(80px, -100px)
+            rotate(7deg);
+    }
+}
+
+
+@keyframes abejaVuelo6 {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(-5deg);
+    }
+
+    35% {
+        transform:
+            translate(100px, -60px)
+            rotate(7deg);
+    }
+
+    70% {
+        transform:
+            translate(-80px, -100px)
+            rotate(-8deg);
+    }
+}
+
+
+/* =========================================================
+   CONTENIDO FINAL
+========================================================= */
+
+.gran-jardin-contenido {
+
+    position:
+        relative;
+
+    z-index:
+        20;
+
+    width:
+        min(90%, 700px);
+
+    padding:
+        40px 20px;
+
+    text-align:
+        center;
+
+    animation:
+        aparecerJardinFinal
+        1.5s
+        ease
+        forwards;
+}
+
+@keyframes aparecerJardinFinal {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+.jardin-final {
+
+    margin:
+        0 0 10px;
+
+    font-size:
+        0.8rem;
+
+    letter-spacing:
+        3px;
+
+    text-transform:
+        uppercase;
+
+    color:
+        rgba(75, 40, 28, 0.72);
+}
+
+
+.gran-jardin .jardin-linea {
+
+    width:
+        80px;
+
+    height:
+        1px;
+
+    margin:
+        20px auto;
+
+    background:
+        rgba(88, 47, 30, 0.7);
+}
+
+
+.gran-jardin h1 {
+
+    margin:
+        0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(4rem, 10vw, 7rem);
+
+    font-weight:
+        500;
+
+    line-height:
+        0.95;
+
+    color:
+        #4d2b22;
+
+    text-shadow:
+        0 3px 15px
+        rgba(255, 230, 160, 0.35);
+}
+
+
+.gran-jardin-texto {
+
+    margin:
+        25px auto 20px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(1.25rem, 3vw, 1.6rem);
+
+    line-height:
+        1.55;
+
+    color:
+        #553328;
+}
+
+
+.gran-jardin-dedicatoria {
+
+    margin:
+        10px 0 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        1.45rem;
+
+    font-style:
+        italic;
+
+    color:
+        #573126;
+}
+
+
+/* =========================================================
+   FLORES CENTRALES
+========================================================= */
+
+.flores-centro {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    margin:
+        22px 0;
+}
+
+.flores-centro span {
+
+    display:
+        inline-block;
+
+    font-size:
+        1.7rem;
+
+    animation:
+        latidoFlor
+        3s
+        ease-in-out
+        infinite;
+}
+
+.flores-centro span:nth-child(2) {
+    animation-delay:
+        -1s;
+}
+
+.flores-centro span:nth-child(3) {
+    animation-delay:
+        -2s;
+}
+
+@keyframes latidoFlor {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-5px)
+            scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   ÚLTIMA SORPRESA
+========================================================= */
+
+.sorpresa-final {
+
+    margin-top:
+        28px;
+
+    text-align:
+        center;
+}
+
+.sorpresa-final p {
+
+    margin:
+        0 0 12px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        1.15rem;
+
+    font-style:
+        italic;
+
+    color:
+        rgba(76, 40, 30, 0.78);
+}
+
+
+/* =========================================================
+   BOTÓN SORPRESA
+========================================================= */
+
+.btn-flores {
+
+    padding:
+        13px 27px;
+
+    border:
+        1px solid
+        rgba(110, 69, 30, 0.45);
+
+    border-radius:
+        50px;
+
+    background:
+        rgba(255, 247, 214, 0.58);
+
+    color:
+        #56331c;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        0.85rem;
+
+    cursor:
+        pointer;
+
+    backdrop-filter:
+        blur(8px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(70, 40, 15, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.btn-flores:hover {
+
+    transform:
+        translateY(-4px);
+
+    background:
+        rgba(255, 251, 231, 0.9);
+
+    box-shadow:
+        0 15px 35px
+        rgba(70, 40, 15, 0.25);
+}
+
+.btn-flores:active {
+
+    transform:
+        scale(0.95);
+}
+
+.btn-flores:disabled {
+
+    cursor:
+        default;
+
+    opacity:
+        0.75;
+}
+
+
+/* =========================================================
+   FLORES DISPARADAS
+========================================================= */
+
+.flor-disparada {
+
+    position:
+        fixed;
+
+    left:
+        50%;
+
+    bottom:
+        45px;
+
+    z-index:
+        100;
+
+    pointer-events:
+        none;
+
+    width:
+        45px;
+
+    height:
+        45px;
+
+    object-fit:
+        contain;
+
+    filter:
+        drop-shadow(
+            0 6px 8px
+            rgba(60, 30, 15, 0.25)
+        );
+
+    animation:
+        dispararFlor
+        2.2s
+        cubic-bezier(.15, .75, .25, 1)
+        forwards;
+}
+
+@keyframes dispararFlor {
+
+    0% {
+
+        opacity:
+            0;
+
+        transform:
+            translate(-50%, 0)
+            scale(0.2)
+            rotate(0deg);
+    }
+
+    10% {
+        opacity:
+            1;
+    }
+
+    45% {
+        opacity:
+            1;
+    }
+
+    100% {
+
+        opacity:
+            0;
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                var(--y)
+            )
+            scale(var(--escala))
+            rotate(var(--rotacion));
+    }
+}
+
+
+/* =========================================================
+   PIE FINAL
+========================================================= */
+
+.gran-jardin-pie {
+
+    position:
+        absolute;
+
+    z-index:
+        25;
+
+    bottom:
+        25px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    white-space:
+        nowrap;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        1rem;
+
+    font-style:
+        italic;
+
+    color:
+        rgba(76, 40, 30, 0.72);
+}
+
+
+/* =========================================================
+   =========================================================
+   RESPONSIVE — TABLET
+   =========================================================
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    /* -----------------------------------------
+       JARDÍN
+    ----------------------------------------- */
+
+    .jardin-flores {
+        max-width:
+            760px;
+    }
+
+    .flor-interactiva-1 {
+        left:
+            2%;
+    }
+
+    .flor-interactiva-5 {
+        right:
+            2%;
+    }
+
+    .jardin-ramo-1 {
+        width:
+            220px;
+    }
+
+    .jardin-ramo-2 {
+        width:
+            220px;
+    }
+
+
+    /* -----------------------------------------
+       GRAN JARDÍN
+    ----------------------------------------- */
+
+    .ramo-1 {
+        width:
+            220px;
+    }
+
+    .ramo-2 {
+        width:
+            160px;
+    }
+
+    .ramo-3 {
+        width:
+            230px;
+    }
+
+    .ramo-4 {
+        width:
+            160px;
+    }
+
+    .abeja {
+        width:
+            42px;
+    }
+}
+
+
+/* =========================================================
+   =========================================================
+   RESPONSIVE — MÓVIL
+   =========================================================
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+
+    /* =====================================================
+       PORTADA
+    ===================================================== */
+
+    .hero {
+
+        min-height:
+            100svh;
+    }
+
+    .hero-contenido {
+
+        width:
+            94%;
+
+        padding:
+            30px 18px;
+    }
+
+    .hero-pequeno {
+
+        font-size:
+            0.72rem;
+
+        letter-spacing:
+            3px;
+    }
+
+    .hero h1 {
+
+        font-size:
+            clamp(3.4rem, 16vw, 5rem);
+    }
+
+    .hero h2 {
+
+        font-size:
+            clamp(1.7rem, 7vw, 2.4rem);
+
+        margin:
+            12px 0 18px;
+    }
+
+    .hero-frase {
+
+        max-width:
+            340px;
+
+        font-size:
+            1.2rem;
+
+        line-height:
+            1.55;
+    }
+
+    .btn-regalo {
+
+        padding:
+            14px 24px;
+
+        font-size:
+            0.85rem;
+    }
+
+    .flor-1 {
+
+        width:
+            110px;
+
+        left:
+            -20px;
+
+        bottom:
+            2%;
+    }
+
+    .flor-2 {
+
+        width:
+            80px;
+
+        left:
+            -10px;
+
+        top:
+            8%;
+    }
+
+    .flor-3 {
+
+        width:
+            120px;
+
+        right:
+            -20px;
+
+        bottom:
+            3%;
+    }
+
+    .flor-4 {
+
+        width:
+            80px;
+
+        right:
+            -5px;
+
+        top:
+            8%;
+    }
+
+
+    /* =====================================================
+       JARDÍN INTERACTIVO
+    ===================================================== */
+
+    .jardin {
+
+        min-height:
+            100svh;
+
+        padding:
+            65px 15px 55px;
+    }
+
+    .jardin-encabezado {
+
+        margin-bottom:
+            15px;
+    }
+
+    .jardin-pequeno {
+
+        font-size:
+            0.7rem;
+
+        letter-spacing:
+            3px;
+    }
+
+    .jardin h1 {
+
+        font-size:
+            clamp(3rem, 13vw, 4.5rem);
+    }
+
+    .jardin-linea {
+
+        margin:
+            15px auto;
+    }
+
+    .jardin-intro {
+
+        max-width:
+            360px;
+
+        font-size:
+            1.2rem;
+
+        line-height:
+            1.5;
+    }
+
+    .jardin-instruccion {
+
+        margin-top:
+            15px;
+
+        font-size:
+            0.72rem;
+    }
+
+
+    /* -----------------------------------------
+       FLORES
+    ----------------------------------------- */
+
+    .jardin-flores {
+
+        width:
+            100%;
+
+        max-width:
+            420px;
+
+        height:
+            440px;
+
+        margin-top:
+            5px;
+    }
+
+    .flor-interactiva-1 {
+
+        width:
+            110px;
+
+        left:
+            0;
+
+        bottom:
+            65px;
+    }
+
+    .flor-interactiva-2 {
+
+        width:
+            95px;
+
+        left:
+            23%;
+
+        top:
+            50px;
+    }
+
+    .flor-interactiva-3 {
+
+        width:
+            125px;
+
+        bottom:
+            45px;
+    }
+
+    .flor-interactiva-4 {
+
+        width:
+            100px;
+
+        right:
+            23%;
+
+        top:
+            50px;
+    }
+
+    .flor-interactiva-5 {
+
+        width:
+            110px;
+
+        right:
+            0;
+
+        bottom:
+            65px;
+    }
+
+
+    /* -----------------------------------------
+       HOJAS
+    ----------------------------------------- */
+
+    .hoja-1 {
+
+        width:
+            125px;
+
+        left:
+            -5px;
+
+        bottom:
+            0;
+    }
+
+    .hoja-2 {
+
+        width:
+            120px;
+
+        right:
+            -5px;
+
+        bottom:
+            0;
+    }
+
+
+    /* -----------------------------------------
+       ABEJAS
+    ----------------------------------------- */
+
+    .jardin-abeja {
+
+        width:
+            34px;
+    }
+
+    .jardin-abeja-1 {
+
+        left:
+            7%;
+
+        top:
+            35%;
+    }
+
+    .jardin-abeja-2 {
+
+        right:
+            7%;
+
+        top:
+            34%;
+    }
+
+    .jardin-abeja-3 {
+
+        left:
+            42%;
+
+        top:
+            20%;
+    }
+
+    .jardin-abeja-4 {
+
+        right:
+            35%;
+
+        bottom:
+            28%;
+    }
+
+
+    /* -----------------------------------------
+       RAMOS
+    ----------------------------------------- */
+
+    .jardin-ramo-1 {
+
+        width:
+            155px;
+
+        left:
+            -45px;
+
+        bottom:
+            -5px;
+    }
+
+    .jardin-ramo-2 {
+
+        width:
+            155px;
+
+        right:
+            -45px;
+
+        bottom:
+            -5px;
+    }
+
+
+    /* -----------------------------------------
+       CONTINUAR
+    ----------------------------------------- */
+
+    .jardin-continuar {
+
+        margin-top:
+            5px;
+    }
+
+    .jardin-continuar p {
+
+        font-size:
+            1.1rem;
+
+        padding:
+            0 10px;
+    }
+
+    .btn-continuar {
+
+        padding:
+            13px 23px;
+
+        font-size:
+            0.82rem;
+    }
+
+
+    /* -----------------------------------------
+       MODAL
+    ----------------------------------------- */
+
+    .mensaje-flor {
+
+        padding:
+            18px;
+    }
+
+    .mensaje-flor-contenido {
+
+        width:
+            min(94%, 420px);
+
+        padding:
+            35px 22px 30px;
+
+        border-radius:
+            22px;
+    }
+
+    .flor-mensaje-icono {
+
+        width:
+            110px;
+
+        height:
+            110px;
+    }
+
+    #textoFlor {
+
+        font-size:
+            1.35rem;
+
+        line-height:
+            1.45;
+    }
+
+
+    /* =====================================================
+       GRAN JARDÍN FINAL
+    ===================================================== */
+
+    .gran-jardin {
+
+        min-height:
+            100svh;
+
+        padding:
+            30px 0 65px;
+    }
+
+
+    /* -----------------------------------------
+       LUZ
+    ----------------------------------------- */
+
+    .jardin-atardecer {
+
+        width:
+            600px;
+
+        height:
+            600px;
+    }
+
+
+    /* -----------------------------------------
+       CONTENIDO
+    ----------------------------------------- */
+
+    .gran-jardin-contenido {
+
+        width:
+            92%;
+
+        max-width:
+            500px;
+
+        padding:
+            25px 15px;
+    }
+
+    .jardin-final {
+
+        font-size:
+            0.68rem;
+
+        letter-spacing:
+            2px;
+    }
+
+    .gran-jardin h1 {
+
+        font-size:
+            clamp(3.5rem, 16vw, 5.2rem);
+    }
+
+    .gran-jardin .jardin-linea {
+
+        margin:
+            15px auto;
+    }
+
+    .gran-jardin-texto {
+
+        margin:
+            20px auto 15px;
+
+        font-size:
+            1.2rem;
+
+        line-height:
+            1.5;
+    }
+
+    .gran-jardin-dedicatoria {
+
+        font-size:
+            1.3rem;
+    }
+
+
+    /* -----------------------------------------
+       FLORES CENTRALES
+    ----------------------------------------- */
+
+    .flores-centro {
+
+        gap:
+            8px;
+
+        margin:
+            18px 0;
+    }
+
+    .flores-centro span {
+
+        font-size:
+            1.5rem;
+    }
+
+
+    /* -----------------------------------------
+       SORPRESA
+    ----------------------------------------- */
+
+    .sorpresa-final {
+
+        margin-top:
+            22px;
+    }
+
+    .sorpresa-final p {
+
+        font-size:
+            1rem;
+    }
+
+    .btn-flores {
+
+        padding:
+            12px 20px;
+
+        font-size:
+            0.78rem;
+    }
+
+
+    /* -----------------------------------------
+       RAMOS FINALES
+    ----------------------------------------- */
+
+    .ramo-1 {
+
+        width:
+            170px;
+
+        left:
+            -45px;
+
+        bottom:
+            5px;
+    }
+
+    .ramo-2 {
+
+        width:
+            125px;
+
+        left:
+            -30px;
+
+        top:
+            15px;
+    }
+
+    .ramo-3 {
+
+        width:
+            175px;
+
+        right:
+            -45px;
+
+        bottom:
+            5px;
+    }
+
+    .ramo-4 {
+
+        width:
+            125px;
+
+        right:
+            -30px;
+
+        top:
+            20px;
+    }
+
+
+    /* -----------------------------------------
+       ABEJAS FINALES
+    ----------------------------------------- */
+
+    .abeja {
+
+        width:
+            34px;
+    }
+
+    .abeja-1 {
+
+        left:
+            8%;
+
+        top:
+            30%;
+    }
+
+    .abeja-2 {
+
+        right:
+            8%;
+
+        top:
+            29%;
+    }
+
+    .abeja-3 {
+
+        left:
+            25%;
+
+        top:
+            17%;
+    }
+
+    .abeja-4 {
+
+        right:
+            25%;
+
+        top:
+            18%;
+    }
+
+    .abeja-5 {
+
+        left:
+            32%;
+
+        bottom:
+            20%;
+    }
+
+    .abeja-6 {
+
+        right:
+            30%;
+
+        bottom:
+            21%;
+    }
+
+
+    /* -----------------------------------------
+       FLORES DISPARADAS
+    ----------------------------------------- */
+
+    .flor-disparada {
+
+        width:
+            38px;
+
+        height:
+            38px;
+    }
+
+
+    /* -----------------------------------------
+       PIE FINAL
+    ----------------------------------------- */
+
+    .gran-jardin-pie {
+
+        bottom:
+            12px;
+
+        font-size:
+            0.85rem;
+
+        gap:
+            8px;
+    }
+}
+
+
+/* =========================================================
+   MÓVILES MUY PEQUEÑOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .hero h1 {
+        font-size:
+            3.3rem;
+    }
+
+    .hero h2 {
+        font-size:
+            1.65rem;
+    }
+
+    .hero-frase {
+        font-size:
+            1.1rem;
+    }
+
+
+    .jardin {
+        padding-top:
+            55px;
+    }
+
+    .jardin h1 {
+        font-size:
+            2.9rem;
+    }
+
+    .jardin-intro {
+        font-size:
+            1.1rem;
+    }
+
+    .jardin-flores {
+        height:
+            410px;
+    }
+
+    .flor-interactiva-1 {
+        width:
+            95px;
+    }
+
+    .flor-interactiva-2 {
+        width:
+            82px;
+    }
+
+    .flor-interactiva-3 {
+        width:
+            110px;
+    }
+
+    .flor-interactiva-4 {
+        width:
+            87px;
+    }
+
+    .flor-interactiva-5 {
+        width:
+            95px;
+    }
+
+    .jardin-ramo-1,
+    .jardin-ramo-2 {
+        width:
+            135px;
+    }
+
+
+    .gran-jardin-contenido {
+        width:
+            94%;
+
+        padding:
+            20px 10px;
+    }
+
+    .gran-jardin h1 {
+        font-size:
+            3.3rem;
+    }
+
+    .gran-jardin-texto {
+        font-size:
+            1.1rem;
+    }
+
+    .gran-jardin-dedicatoria {
+        font-size:
+            1.2rem;
+    }
+
+    .ramo-1 {
+        width:
+            140px;
+
+        left:
+            -45px;
+    }
+
+    .ramo-2 {
+        width:
+            105px;
+
+        left:
+            -30px;
+    }
+
+    .ramo-3 {
+        width:
+            145px;
+
+        right:
+            -45px;
+    }
+
+    .ramo-4 {
+        width:
+            105px;
+
+        right:
+            -30px;
+    }
+
+    .abeja {
+        width:
+            29px;
+    }
+
+    .gran-jardin-pie {
+        font-size:
+            0.78rem;
+    }
+}
+
+
+/* =========================================================
+   REDUCCIÓN DE MOVIMIENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        scroll-behavior:
+            auto !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+}
+
